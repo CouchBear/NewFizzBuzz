@@ -14,16 +14,17 @@ internal class Program
         return number;
     }
 
-    // private static int[] getUserRules(){
-    //     Console.WriteLine("Please enter rules. You can choose anyone or any combination of [3,5,7,11,13,17]");
-    //     string ruleString=""+Console.ReadLine();
-    //     string[] ruleArray=ruleString.Split(',');
-    //     int[] ruleNumberArray= new int[1];
-    //     foreach(var item in ruleArray){
-    //         ruleNumberArray.Append(int.Parse(item));
-    //     }
-    //     return ruleNumberArray;
-    //     }
+    private static int[] getUserRules(){
+        Console.WriteLine("Please enter rules. You can choose anyone or any combination of [3,5,7,11,13,17]");
+        string ruleString=""+Console.ReadLine();
+        string[] ruleArray=ruleString.Trim().Split(',');
+        int[] ruleNumberArray= new int[ruleArray.Length];
+        foreach(var item in ruleArray){
+            ruleNumberArray.Append(int.Parse(item));
+           
+        }
+        return ruleNumberArray;
+        }
 
     
     private static void Main(string[] args)
@@ -36,20 +37,14 @@ internal class Program
             [13]="Fezz",
             [17]=""     
         };
-        // fizzBuzz.Add(3, "Fizz");
-        // fizzBuzz.Add(5, "Buzz");
-        // fizzBuzz.Add(7, "Bang");
-        // fizzBuzz.Add(11, "Bong");
-        // fizzBuzz.Add(13, "Fezz");
-        // fizzBuzz.Add(17, "");
 
         int userInputMin=getUserInput("Minimum");
         int userInputMax=getUserInput("Maximum");
-        // int[] rules=getUserRules();
-        // foreach(var rule in rules){
-        //     Console.Write(rule);
-        // }
-
+        
+        //can't assign an array this way?
+        int[] rules=getUserRules();
+       //Console.WriteLine(string.Join(" ",rules));
+        
         for (int i = userInputMin; i <= userInputMax; i++)
         {
             string answer = "";
